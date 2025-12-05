@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModuleType } from '../types';
-import { Camera, Box, Palette } from 'lucide-react';
+import { Camera, Box, Palette, Gift } from 'lucide-react';
 
 interface NavigationProps {
   currentModule: ModuleType;
@@ -12,6 +12,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentModule, onModuleChange }
     { type: ModuleType.PRODUCT, icon: Box, label: 'Product Studio' },
     { type: ModuleType.HUMAN, icon: Camera, label: 'Pro Photography' },
     { type: ModuleType.CARTOON, icon: Palette, label: 'Cartoon Art' },
+    { type: ModuleType.SESERAHAN, icon: Gift, label: 'Seserahan Studio' },
   ];
 
   return (
@@ -20,10 +21,10 @@ const Navigation: React.FC<NavigationProps> = ({ currentModule, onModuleChange }
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <span className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-              StudioMimic
+              Pantes Digital Studio
             </span>
           </div>
-          <div className="flex space-x-2 md:space-x-4">
+          <div className="flex space-x-1 md:space-x-2 overflow-x-auto no-scrollbar py-2">
             {navItems.map((item) => {
               const isActive = currentModule === item.type;
               const Icon = item.icon;
@@ -31,7 +32,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentModule, onModuleChange }
                 <button
                   key={item.type}
                   onClick={() => onModuleChange(item.type)}
-                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? 'bg-studio-700 text-white shadow-md ring-1 ring-studio-600'
                       : 'text-studio-400 hover:bg-studio-700 hover:text-white'

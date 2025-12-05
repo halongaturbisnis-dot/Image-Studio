@@ -1,7 +1,8 @@
 export enum ModuleType {
   PRODUCT = 'Product Studio Photo',
   HUMAN = 'Humanbases Professional',
-  CARTOON = 'Cartoon Photo'
+  CARTOON = 'Cartoon Photo',
+  SESERAHAN = 'Seserahan Studio'
 }
 
 export interface GeneratedImage {
@@ -34,6 +35,9 @@ export interface ControlSettings {
   // Cartoon
   artStyle?: string;
   colorPalette?: string;
+  // Seserahan
+  seserahanTheme?: string;
+  decorationStyle?: string;
 }
 
 export const INITIAL_SETTINGS: ControlSettings = {
@@ -46,5 +50,7 @@ export const INITIAL_SETTINGS: ControlSettings = {
   clothingStyle: 'Professional',
   artStyle: '3D Render',
   colorPalette: 'Vibrant',
-  additionalPrompt: ''
+  additionalPrompt: '',
+  seserahanTheme: 'Elegant Luxury',
+  decorationStyle: 'Fresh Flowers'
 };

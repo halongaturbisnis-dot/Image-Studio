@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModuleType, ControlSettings } from '../types';
-import { Sliders, Zap, Layout, User, Aperture, Monitor } from 'lucide-react';
+import { Sliders, Zap, Layout, User, Aperture, Monitor, Gift, Flower } from 'lucide-react';
 
 interface ControlsProps {
   module: ModuleType;
@@ -115,6 +115,25 @@ const Controls: React.FC<ControlsProps> = ({ module, settings, onSettingsChange 
               value={settings.colorPalette}
               icon={Zap}
               options={['Vibrant', 'Pastel', 'Dark & Moody', 'Monochrome', 'Warm Tones']}
+            />
+          </>
+        )}
+
+        {module === ModuleType.SESERAHAN && (
+          <>
+            <SelectInput
+              label="Theme"
+              field="seserahanTheme"
+              value={settings.seserahanTheme}
+              icon={Layout}
+              options={['Elegant Luxury', 'Rustic Wooden', 'Modern Pastel', 'Traditional Gold', 'White & Clean']}
+            />
+            <SelectInput
+              label="Decoration"
+              field="decorationStyle"
+              value={settings.decorationStyle}
+              icon={Flower}
+              options={['Fresh Flowers', 'Dry Flowers & Wheat', 'Crystal & Velvet', 'Ribbons & Lace', 'Fairy Lights']}
             />
           </>
         )}

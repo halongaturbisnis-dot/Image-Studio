@@ -135,7 +135,7 @@ const App: React.FC = () => {
       
       <footer className="bg-studio-900 border-t border-studio-800 py-8 mt-12">
         <div className="max-w-7xl mx-auto px-4 text-center text-studio-500 text-sm">
-          <p>© {new Date().getFullYear()} StudioMimic AI. Powered by Google Gemini.</p>
+          <p>© {new Date().getFullYear()} Pantes Digital Studio. Powered by Google Gemini.</p>
         </div>
       </footer>
     </div>

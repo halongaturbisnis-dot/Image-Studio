@@ -32,6 +32,13 @@ const constructPrompt = (module: ModuleType, settings: ControlSettings): string 
       return `${base}Turn this image into a ${settings.artStyle} style illustration. 
       Color palette: ${settings.colorPalette}. 
       High quality, artistic, detailed, creative.`;
+
+    case ModuleType.SESERAHAN:
+      return `${base}Transform this image into a beautiful professional seserahan (wedding gift hamper) photography. 
+      Theme: ${settings.seserahanTheme}. 
+      Decoration Style: ${settings.decorationStyle}. 
+      Ensure the gifts are elegantly arranged in a tray or box. 
+      Soft, romantic lighting, elegant presentation, premium aesthetic, 8k resolution.`;
     
     default:
       return `${base}Enhance this image professionally.`;
@@ -44,10 +51,9 @@ export const generateVariations = async (
   settings: ControlSettings,
   count: number = 4
 ): Promise<GeneratedImage[]> => {
-  const apiKey = process.env.API_KEY;
-  if (!apiKey) throw new Error("API Key not found");
+  if (!process.env.API_KEY) throw new Error("API Key not found");
 
-  const ai = new GoogleGenAI({ apiKey });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const model = 'gemini-2.5-flash-image';
   const prompt = constructPrompt(module, settings);
   const mimeType = getMimeType(imageBase64);
